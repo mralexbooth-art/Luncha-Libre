@@ -1,0 +1,35 @@
+:root {
+  --bg-deep:     #120c08;
+  --bg-table:    #2d1f17;
+  --bg-card:     #f1e4c8;
+  --ink:         #1c130c;
+  --parchment:   #e8dcc4;
+  --gold:        #d4a017;
+  --blood:       #a01e1e;
+  --steel:       #5878a0;
+  --grease:      #9c6b1f;
+  font-family: ui-serif, Georgia, 'Times New Roman', serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at center, #2a1c12 0%, #120c08 70%, #0a0604 100%);
+  color: var(--parchment);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:disabled { cursor: not-allowed; }
+
+h1, h2, h3 { font-weight: 700; letter-spacing: 0.02em; }

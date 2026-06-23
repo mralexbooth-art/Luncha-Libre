@@ -1,0 +1,74 @@
+{
+  "style": "32x32 pixel art icon, lucha libre wrestling theme meets food/kitchen. Warm earth palette: gold ochre, deep red, ember orange, charcoal, cream highlights. Transparent background. Crisp pixel edges, NES/SNES era aesthetic, bold readable silhouette, slight depth via 3-tone shading. No text, no card frame, subject centered.",
+  "negative": "blurry, photo, gradient noise, watermark, text, signature, modern UI, low contrast, soft edges, anti-aliased, 3D render, fancy script",
+  "ingredients": {
+    "corn-masa":       "ball of golden corn masa dough, slight steam, lucha mask floating above",
+    "flour":           "small linen sack of flour with red drawstring, flour puff",
+    "tortilla":        "stack of three warm tortillas, top one slightly curled, lucha mask folded inside",
+    "rice":            "wooden bowl of fluffy white rice, single steam swirl",
+    "beef-chuck":      "raw cut of beef chuck on a wood block, marbled, with tiny championship belt wrapped",
+    "pork":            "slab of fatty pork shoulder, pink and white striped, ember glow",
+    "chicken":         "whole raw chicken wearing a small luchador mask, eyes side-eyeing",
+    "onion":           "yellow onion mid-tear, dramatic teardrop pixel, peeled layer",
+    "garlic":          "head of garlic with one clove flexing like a muscle",
+    "cilantro":        "bright green cilantro sprig, dynamic leaves",
+    "sugar":           "white sugar cube with red mask outline, sparkle",
+    "cinnamon":        "rolled cinnamon stick, warm brown, ember at one end",
+    "chili":           "red chili pepper, fierce eyes, ember tip",
+    "habanero":        "orange habanero with snarl, tiny flame above stem",
+    "lime":            "halved bright green lime, sour expression on cut face",
+    "salt":            "stout salt shaker with red top, single salt grain mid-air",
+    "butter":          "stick of yellow butter on wax paper, melting corner",
+    "lard":            "tin pail of white lard, slight ooze",
+    "tomato":          "red tomato with green leaves, slight smug face",
+    "cheese":          "yellow cheese wedge with classic holes, lucha mask faintly visible on side",
+    "poptart-of-pain": "frosted toaster pastry with skull sprinkle, menacing red icing",
+    "raw-celery":      "single celery stalk with leafy top, crunchy"
+  },
+  "ingredient_stages": {
+    "raw":     "in its raw uncooked state, vivid color",
+    "chopped": "neatly diced into chunks on a cutting board",
+    "cooking": "sizzling in oil with small steam wisps, partially browned",
+    "cooked":  "fully golden brown, glistening, finished",
+    "burnt":   "charred black with smoke wisp, sad expression"
+  },
+  "actions": {
+    "mise-en-place":   "orderly prep board with three small bowls of chopped ingredients and a knife",
+    "pressure-cooker": "old-school pressure cooker with steam hissing out top, dial at high",
+    "open-flame":      "roaring orange flame with grill grate silhouette",
+    "guest-chef":      "Abuela Inferno: tough grandma in apron wielding a fiery wooden spoon, fierce eyes",
+    "salt-bae":        "silhouette arm sprinkling salt with theatrical flourish, single grain trail",
+    "kitchen-fire":    "kitchen panel engulfed in orange flame, lone pot flying",
+    "taste-test":      "wooden tasting spoon with a single drop, sneaky eye peeking",
+    "snack-break":     "chef's hat tilted, hand holding a small bag of chips, satisfied",
+    "family-recipe":   "open leather recipe book with handwriting and a glowing page",
+    "spice-rack":      "row of spice jars with red caps on wooden shelf, one jar tipped",
+    "bonus-tip":       "tip jar of peso coins, one coin mid-flip",
+    "crowd-pleaser":   "stylized roaring crowd silhouette with one luchador fist raised",
+    "composter":       "wooden compost bin with green leaves and a small worm peeking",
+    "sous-chef":       "second cook in white coat handing over a knife",
+    "pantry-raid":     "open pantry door with flashlight beam, shelves of ingredients",
+    "knife-sharpener": "diagonal sharpening rod with knife sparking down it",
+    "auto-dicer":      "boxy retro-futurist countertop dicer with chopping blades, single LED",
+    "med-kit":         "small white kit with red cross, bandage and pill bottle"
+  },
+  "recipes": {
+    "tamale-tornado":    "tamale wrestler wrapped in cornhusk, lucha mask, mid-spin with wind streaks",
+    "pan-dulce-punch":   "round pan dulce concha throwing a haymaker, pink sugar shell cracked at knuckles",
+    "empanada-enforcer": "burly empanada doorman, crossed arms, golden crust, lucha mask",
+    "burrito-bouncer":   "massive foil-wrapped burrito with arms crossed, bouncer pose, sunglasses",
+    "habanero-haymaker": "habanero wrestler with flaming gloves, snarling mid-punch, sparks",
+    "churro-chainsaw":   "long churro wielded like a chainsaw, sugar crystals as teeth, cinnamon smoke",
+    "wild-dish":         "abstract unidentifiable food blob with question mark, lucha mask, suspicious eyes"
+  },
+  "recipe_qualities": {
+    "perfect": "masterful presentation, glistening, halo of small sparkles, victorious pose, vivid colors",
+    "good":    "solid execution, clean look, neutral palette",
+    "plain":   "underwhelming, slightly dull colors, slumped posture, no shine",
+    "burnt":   "charred black edges, smoke wisps, soot, defeated expression, ashen tones"
+  },
+  "chef_portraits": {
+    "chef-rivera":     "Chef Rivera 'El Cocinero': masked luchador chef in white apron with gold trim, fierce mustache, holding wooden spoon, gold-and-red mask",
+    "el-bistec":       "El Bistec 'The Rival Cut': hulking butcher luchador in blood-red apron, raw-meat-themed mask, cleaver crossed across chest"
+  }
+}

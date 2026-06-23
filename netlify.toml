@@ -1,0 +1,29 @@
+# Netlify deploy config for Luncha Libre.
+# Vite + React static build, no backend. localStorage persists per-origin.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 8 needs Node 20+. Lock it to avoid Netlify defaulting to something older.
+  NODE_VERSION = "20"
+
+# SPA fallback — not strictly needed today (no client-side routing), but
+# harmless and makes future routing work without a redeploy of config.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Cache static art + sound assets aggressively (they're content-hashed in
+# /assets/ already, so the bare /cards and /sounds get a 1-day cache).
+[[headers]]
+  for = "/cards/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/sounds/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
