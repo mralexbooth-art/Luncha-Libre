@@ -5675,6 +5675,61 @@ body { overflow: auto; }
   letter-spacing: 0.03em;
 }
 
+/* V4: positioned candle hotspot on the painted background art. */
+.food-court__candle-btn {
+  position: absolute;
+  left: 50%;
+  top: 78%;
+  width: 56px;
+  height: 84px;
+  margin-left: -28px;
+  margin-top: -42px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  transition: box-shadow 0.4s ease, background 0.4s ease;
+}
+.food-court__candle-btn:disabled { cursor: default; }
+.food-court__candle-btn.is-interactive {
+  /* Gentle pulsing aura so the candle is discoverable. */
+  animation: candle-beckon 2.4s ease-in-out infinite;
+}
+@keyframes candle-beckon {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 200, 100, 0); background: transparent; }
+  50%      { box-shadow: 0 0 30px 4px rgba(255, 200, 100, 0.18); background: radial-gradient(circle, rgba(255, 200, 100, 0.08), transparent 70%); }
+}
+.food-court__candle-btn.is-interactive:hover {
+  animation: none;
+  background: radial-gradient(circle, rgba(255, 200, 100, 0.28), transparent 70%);
+  box-shadow: 0 0 48px 10px rgba(255, 200, 100, 0.45);
+}
+.food-court__candle-btn.is-lit {
+  background: radial-gradient(circle, rgba(255, 200, 100, 0.35), transparent 75%);
+  box-shadow: 0 0 60px 16px rgba(255, 200, 100, 0.45);
+  animation: candle-flicker 0.35s ease-in-out infinite alternate;
+}
+@keyframes candle-flicker {
+  from { transform: translateY(0); opacity: 0.85; }
+  to   { transform: translateY(-1px); opacity: 1; }
+}
+
+/* V4: anchored radio overlay for the candle-lit scene. */
+.candle-lit__radio-anchor {
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  transform: translateX(-50%);
+  z-index: 3;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.7));
+}
+
+/* Hide the old emoji altar / picnic-table decorations now that we have real
+   background art. They were placeholders. */
+.food-court,
+.candle-altar { display: none; }
+
 /* ─── Inventory ──────────────────────────────────────────────── */
 
 .inventory {

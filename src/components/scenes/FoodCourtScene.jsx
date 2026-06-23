@@ -1,12 +1,6 @@
-// The food court. Light rain. Picnic tables. Sabia waits.
-//
-// Flow:
-//   1. Brief narration (FOOD_COURT_NARRATION + SABIA_APPROACH_NARRATION)
-//   2. Sabia speaks — SABIA_INTRO + "What do you have?"
-//   3. Inventory opens in OFFERING mode
-//   4. Sabia reacts (per offer kind)
-//   5. SABIA_FAREWELL — she wanders off
-//   6. Player can free-roam: click hotspots. Lighting the candle advances.
+// The food court. Background art is the real painting (public/scenes/food-
+// court.png). The candle in the painting is the click target — a hotspot
+// positioned at the painted candle's location, invisible until hovered.
 
 import { useState } from 'react'
 import Narrator from '../Narrator.jsx'
@@ -17,7 +11,6 @@ import {
   SABIA_INTRO, SABIA_RESPONSES, SABIA_FAREWELL,
 } from '../../data/prelude-script.js'
 
-// Sub-phases of the food-court scene.
 const STEPS = {
   NARR_INTRO:   'narr-intro',
   SABIA_INTRO:  'sabia-intro',
@@ -32,15 +25,26 @@ export default function FoodCourtScene({ prelude, onOffer, onLightCandle }) {
   const [pendingOffer, setPendingOffer] = useState(null)
 
   const sabiaResponseLines = pendingOffer ? SABIA_RESPONSES[pendingOffer] ?? [] : []
+  const interactive = step === STEPS.EXPLORE && !prelude.candleLit
 
   return (
-    <div className="scene scene--food-court">
+    <div className={`scene scene--food-court ${prelude.candleLit ? 'is-lit' : ''}`}>
       <div className="scene-rain" aria-hidden="true">
         {Array.from({ length: 40 }, (_, i) => (
           <span key={i} className="scene-rain__drop" style={{ '--i': i, '--d': `${(i * 137) % 100}%` }} />
         ))}
       </div>
-      <FoodCourtBackdrop step={step} onLightCandle={onLightCandle} candleLit={prelude.candleLit} />
+
+      {/* The candle in the painting is a clickable hotspot. Position is tuned
+          to land on the painted candle. Becomes a soft pulsing aura on hover. */}
+      <button
+        type="button"
+        className={`food-court__candle-btn ${interactive ? 'is-interactive' : ''} ${prelude.candleLit ? 'is-lit' : ''}`}
+        onClick={interactive ? onLightCandle : undefined}
+        disabled={!interactive}
+        title={interactive ? 'Light the candle' : ''}
+        aria-label="Light the candle"
+      />
 
       {step === STEPS.NARR_INTRO && (
         <Narrator
@@ -79,51 +83,10 @@ export default function FoodCourtScene({ prelude, onOffer, onLightCandle }) {
           <div className="food-court__hint">
             {prelude.candleLit
               ? 'The candle burns. Listen.'
-              : 'Walk around. Look at things. Find the candle.'}
+              : 'Look around. Find the candle.'}
           </div>
         </div>
       )}
-    </div>
-  )
-}
-
-// ─── The visible backdrop — picnic tables, marigolds, the altar ────
-
-function FoodCourtBackdrop({ step, onLightCandle, candleLit }) {
-  // Hotspots are only clickable in the EXPLORE step.
-  const interactive = step === STEPS.EXPLORE
-  return (
-    <div className="food-court">
-      <div className="food-court__bg" aria-hidden="true" />
-      <div className="food-court__props">
-
-        {/* Three decorative picnic tables across the back */}
-        <div className="food-court__table food-court__table--1" aria-hidden="true">
-          <span className="food-court__menu">📜</span>
-          <span className="food-court__radio" title="A broken boombox.">📻</span>
-        </div>
-        <div className="food-court__table food-court__table--2" aria-hidden="true">
-          <span className="food-court__marigold">🌼</span>
-          <span className="food-court__marigold">🌼</span>
-        </div>
-        <div className="food-court__table food-court__table--3" aria-hidden="true">
-          <span className="food-court__candle-jar">🕯</span>
-        </div>
-
-        {/* The altar — interactive in EXPLORE step. Lights the candle. */}
-        <button
-          type="button"
-          className={`food-court__altar ${candleLit ? 'is-lit' : ''}`}
-          disabled={!interactive}
-          onClick={interactive ? onLightCandle : undefined}
-          title={interactive ? (candleLit ? 'The candle is lit. Listen for the radio.' : 'Light the candle (uses a match).') : ''}
-        >
-          <div className="food-court__altar-marigolds" aria-hidden="true">🌼🌼🌼</div>
-          <div className="food-court__altar-candle">{candleLit ? '🔥' : '🕯️'}</div>
-          <div className="food-court__altar-radio" aria-hidden="true">📻</div>
-          <div className="food-court__altar-label">The altar</div>
-        </button>
-      </div>
     </div>
   )
 }

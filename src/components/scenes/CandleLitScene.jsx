@@ -15,10 +15,9 @@ export default function CandleLitScene({ onAccept }) {
   const [step, setStep] = useState(STEPS.NARR)
   return (
     <div className="scene scene--candle-lit">
-      <div className="candle-altar" aria-hidden="true">
-        <div className="candle-altar__flame">🔥</div>
-        <div className="candle-altar__candle">🕯️</div>
-        <div className="candle-altar__marigolds">🌼🌼🌼🌼</div>
+      {/* The painted candle in the background is now lit. A small radio
+          widget floats over the altar to ground the dialogue source. */}
+      <div className="candle-lit__radio-anchor" aria-hidden="true">
         <Radio clarity={2} placement="altar" />
       </div>
 
