@@ -5434,6 +5434,7 @@ body { overflow: auto; }
 .scene--awake {
   background:
     radial-gradient(ellipse at 50% 60%, rgba(20, 15, 10, 0.5), transparent 70%),
+    url('/scenes/awake.png') center/cover no-repeat,
     #020100;
 }
 
@@ -5560,6 +5561,7 @@ body { overflow: auto; }
 .scene--food-court {
   background:
     radial-gradient(ellipse at 50% 80%, rgba(80, 60, 35, 0.55), transparent 70%),
+    url('/scenes/food-court.png') center/cover no-repeat,
     linear-gradient(180deg, #060403 0%, #0b0805 100%);
 }
 
@@ -5890,6 +5892,7 @@ body { overflow: auto; }
 .scene--candle-lit {
   background:
     radial-gradient(ellipse at 50% 50%, rgba(212, 100, 30, 0.18) 0%, transparent 60%),
+    url('/scenes/candle-lit.png') center/cover no-repeat,
     linear-gradient(180deg, #0a0604 0%, #050302 100%);
 }
 .candle-altar {
@@ -5966,6 +5969,7 @@ body { overflow: auto; }
 .scene--wandering {
   background:
     radial-gradient(ellipse at 50% 70%, rgba(80, 60, 35, 0.55), transparent 70%),
+    url('/scenes/wandering.png') center/cover no-repeat,
     linear-gradient(180deg, #060403 0%, #0b0805 100%);
 }
 .wander-court {
@@ -6074,6 +6078,7 @@ body { overflow: auto; }
 .scene--kitchen {
   background:
     radial-gradient(ellipse at 50% 50%, rgba(60, 35, 18, 0.6) 0%, transparent 60%),
+    url('/scenes/kitchen.png') center/cover no-repeat,
     linear-gradient(180deg, #0a0805 0%, #050302 100%);
   justify-content: flex-start;
   padding-top: 1rem;
@@ -6221,6 +6226,7 @@ body { overflow: auto; }
 .scene--altar {
   background:
     radial-gradient(ellipse at 50% 50%, rgba(212, 100, 30, 0.18) 0%, transparent 60%),
+    url('/scenes/altar.png') center/cover no-repeat,
     linear-gradient(180deg, #0a0604 0%, #050302 100%);
   justify-content: flex-start;
   padding-top: 1rem;
@@ -6256,6 +6262,7 @@ body { overflow: auto; }
 .scene--choice {
   background:
     radial-gradient(ellipse at 50% 50%, rgba(212, 100, 30, 0.12), transparent 70%),
+    url('/scenes/choice.png') center/cover no-repeat,
     linear-gradient(180deg, #0a0604, #050302);
 }
 .choice__title {
@@ -6324,6 +6331,7 @@ body { overflow: auto; }
 .scene--arcana {
   background:
     radial-gradient(ellipse at 50% 50%, rgba(255, 200, 100, 0.18), transparent 70%),
+    url('/scenes/arcana.png') center/cover no-repeat,
     linear-gradient(180deg, #0a0604, #050302);
 }
 .arcana-card {
@@ -6396,6 +6404,7 @@ body { overflow: auto; }
 .scene--slice-end {
   background:
     radial-gradient(ellipse at 50% 60%, rgba(80, 60, 35, 0.55), transparent 70%),
+    url('/scenes/slice-end.png') center/cover no-repeat,
     linear-gradient(180deg, #060403 0%, #0b0805 100%);
   transition: opacity 1.4s ease;
 }
@@ -6445,5 +6454,6 @@ body { overflow: auto; }
 .scene--end {
   background:
     radial-gradient(ellipse at 50% 50%, rgba(80, 60, 35, 0.35), transparent 70%),
+    url('/scenes/end.png') center/cover no-repeat,
     linear-gradient(180deg, #0a0604, #050302);
 }
