@@ -1,14 +1,22 @@
-// Speaker dialogue overlay (Sabia, Abuela, NPCs). Different from Narrator —
-// has a named speaker, a portrait slot, tone-coloring, and click-to-advance.
-// Reuses the typewriter pattern.
+// V4 — Speaker dialogue on paper cards, one variant per character.
+//   - Sabia              → warm parchment card
+//   - Abuela (radio)     → "transmission" card with subtle scan-line jitter
+//   - default            → neutral parchment
+//
+// Same per-character ink-bleed treatment as the Narrator.
 
 import { useEffect, useState } from 'react'
 
-const CHAR_DELAY_MS = 28
-const HOLD_AFTER_TEXT_MS = 200
+const CHAR_DELAY_MS = 32
+const HOLD_AFTER_TEXT_MS = 220
+
+const SPEAKER_VARIANTS = {
+  'Sabia':           'sabia',
+  'Abuela (radio)':  'radio',
+}
 
 const SPEAKER_ICON = {
-  'Sabia':           '🧓',
+  'Sabia':           '🌼',
   'Abuela (radio)':  '📻',
   'NPC':             '🧑',
 }
@@ -36,6 +44,7 @@ function DialogueLine({ beat, isLast, onAdvance }) {
   const text = beat.text ?? ''
   const speaker = beat.speaker
   const tone = beat.tone ?? 'neutral'
+  const variant = SPEAKER_VARIANTS[speaker] ?? 'default'
   const icon = SPEAKER_ICON[speaker] ?? '✦'
 
   useEffect(() => {
@@ -65,18 +74,29 @@ function DialogueLine({ beat, isLast, onAdvance }) {
     onAdvance?.()
   }
 
+  const chars = text.slice(0, revealed).split('')
+
   return (
-    <div className={`dialogue dialogue--${tone}`} onClick={handleClick} role="dialog" aria-live="polite">
-      <div className="dialogue__portrait" aria-hidden="true">
-        <div className="dialogue__mask">{icon}</div>
-        {speaker && <div className="dialogue__speaker">{speaker}</div>}
-      </div>
-      <div className="dialogue__bubble">
-        <div className="dialogue__text">
-          {text.slice(0, revealed)}
-          <span className="dialogue__caret">▍</span>
+    <div
+      className={`ink-card ink-card--dialogue ink-card--${variant} ink-card--tone-${tone}`}
+      onClick={handleClick}
+      role="dialog"
+      aria-live="polite"
+    >
+      <div className="ink-card__paper">
+        {speaker && (
+          <div className="ink-card__speaker">
+            <span className="ink-card__speaker-icon" aria-hidden="true">{icon}</span>
+            <span className="ink-card__speaker-name">{speaker}</span>
+          </div>
+        )}
+        <div className="ink-card__text">
+          {chars.map((ch, i) => (
+            <span key={i} className="ink-char">{ch}</span>
+          ))}
+          <span className="ink-card__caret">▍</span>
         </div>
-        <div className="dialogue__hint">
+        <div className="ink-card__hint">
           {done ? (isLast ? 'click to continue' : 'click') : ' '}
         </div>
       </div>

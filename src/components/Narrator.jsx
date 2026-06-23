@@ -1,10 +1,11 @@
-// Second-person narration overlay. Lines feel like soft text-on-rain.
-// Click anywhere on the overlay to advance. Typewriter same as Empresario.
+// V4 — Second-person narration written on a paper card. Each new character
+// "ink-bleeds" onto the paper via a per-char animated span. Click or press
+// Space/Enter to advance.
 
 import { useEffect, useState } from 'react'
 
-const CHAR_DELAY_MS = 32
-const HOLD_AFTER_TEXT_MS = 300
+const CHAR_DELAY_MS = 38
+const HOLD_AFTER_TEXT_MS = 320
 
 export default function Narrator({ lines = [], onComplete }) {
   const [idx, setIdx] = useState(0)
@@ -53,11 +54,21 @@ function NarratorLine({ text, isLast, onAdvance }) {
     onAdvance?.()
   }
 
-  const shown = text.slice(0, revealed)
+  const chars = text.slice(0, revealed).split('')
+
   return (
-    <div className="narrator" onClick={handleClick} role="dialog" aria-live="polite">
-      <div className="narrator__text">{shown}<span className="narrator__caret">▍</span></div>
-      <div className="narrator__hint">{done ? (isLast ? 'click to continue' : 'click') : ' '}</div>
+    <div className="ink-card ink-card--narrator" onClick={handleClick} role="dialog" aria-live="polite">
+      <div className="ink-card__paper">
+        <div className="ink-card__text">
+          {chars.map((ch, i) => (
+            <span key={i} className="ink-char">{ch}</span>
+          ))}
+          <span className="ink-card__caret">▍</span>
+        </div>
+        <div className="ink-card__hint">
+          {done ? (isLast ? 'click to continue' : 'click') : ' '}
+        </div>
+      </div>
     </div>
   )
 }
